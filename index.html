@@ -9,12 +9,24 @@
 </head>
 
 <body>
-    <div id="vue-app" align="center">
-        <h1>Conditionals</h1>
-        <button @click="error = !error">Toggle Error</button>
-        <button @click="success = !success">Toggle Sucess</button>
-        <p v-if="error">Oh noo</p>
-        <p v-else-if="success">Yeahh</p>
+    <div id="vue-app" >
+        <h1>Loops</h1>
+        <h2>Names</h2>
+        <ul>
+            <li v-for="name in names">{{name}}</li>
+        </ul>
+        <h2>Ninjas</h2>
+        <ul>
+            <li v-for="(ninja,index) in ninjas">{{index + 1}}): Name: {{ninja.name}} - Age: {{ninja.age}}</li>
+        </ul>
+        <br>
+        <template v-for="(ninja,index) in ninjas">{{index + 1}}): Name: {{ninja.name}} - Age: {{ninja.age}}</template>
+        <template v-for="ninja in ninjas">
+            <div v-for="(val,key) in ninja">
+                {{key}} : {{val}}
+            </div>
+        </template>
+
     </div>
     <script src="app.js"></script>
 </body>

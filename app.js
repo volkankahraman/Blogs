@@ -1,17 +1,17 @@
 new Vue({
 	el: '#vue-app',
 	data: {
-		error: false,
-		success: false
+		names: ['Volkan','ninja'],
+		ninjas: [{
+			name: 'Ryu', age: 25
+		}, {
+			name: 'Mario', age: 22
+		}, {
+			name: 'Ken', age: 21
+		},]
 	},
 	methods: {
 	},
 	computed: {
-		compClasses: function () {
-			return {
-				red: this.red,
-				blue: this.blue
-			}
-		}
 	}
 });
