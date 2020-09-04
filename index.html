@@ -10,13 +10,13 @@
 
 <body>
     <div id="vue-app" align="center">
-        <h1>Computed Properties</h1>
-        <button @click="a++">a++</button>
-        <button @click="b++">b++</button>
-        <p> A - {{a}}</p>
-        <p> B - {{b}}</p>
-        <p>A + Age : {{atoAge}}</p>
-        <p>B + Age : {{btoAge}}</p>
+        <h1>Dynamic Css</h1>
+        <h2>Example 1</h2>
+        <div @click="red=!red" v-bind:class="{red:red}" >text</div>
+        <h2>Example 2</h2>
+        <div v-bind:class="compClasses">
+            text-2
+        </div>
     </div>
     <script src="app.js"></script>
 </body>
