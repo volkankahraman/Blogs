@@ -10,13 +10,11 @@
 
 <body>
     <div id="vue-app" align="center">
-        <h1>Dynamic Css</h1>
-        <h2>Example 1</h2>
-        <div @click="red=!red" v-bind:class="{red:red}" >text</div>
-        <h2>Example 2</h2>
-        <div v-bind:class="compClasses">
-            text-2
-        </div>
+        <h1>Conditionals</h1>
+        <button @click="error = !error">Toggle Error</button>
+        <button @click="success = !success">Toggle Sucess</button>
+        <p v-if="error">Oh noo</p>
+        <p v-else-if="success">Yeahh</p>
     </div>
     <script src="app.js"></script>
 </body>
