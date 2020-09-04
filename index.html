@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link href="style.css" rel="stylesheet" />
     <script src="https://unpkg.com/vue"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue </title>
 </head>
+
 <body>
-    <div id="vue-app">
-        <h1>Name: {{ name }}</h1>
-        <p>Job : {{job }}</p>
+    <div id="vue-app" align="center">
+        <h1>Events</h1>
+        <button @click="add(1)">+</button>
+        <button @click="subtract(1)">-</button>
+        <button @click="add(10)">+</button>
+        <button @click="subtract(10)">-</button>
+        <p> My age {{age}}</p>
+        <div id="canvas" @mousemove="updateXY">
+            {{y}},{{y}}
+        </div>
+
     </div>
     <script src="app.js"></script>
 </body>
+
 </html>
