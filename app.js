@@ -8,15 +8,11 @@ new Vue({
 		y:0
 	},
 	methods: {
-		add: function (inc) {
-			this.age += inc;
+		logName: function () {
+			console.log("log name");
 		},
-		subtract: function (dec) {
-			this.age -= dec;
+		logAge: function () {
+			console.log("log age");
 		},
-		updateXY: function (event) {
-			this.x = event.offsetX;
-			this.y = event.offsetY;
-		}
 	}
 });
