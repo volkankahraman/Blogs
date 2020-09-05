@@ -1,30 +1,20 @@
-let one = new Vue({
+Vue.component('greeting',{
+	template: '<p> hello there i am {{name}} <button @click="changeName">change</button></p>',
+	data: function () {
+		return{
+			name:'Yoshi'
+		}
+	},
+	methods:{
+		changeName: function () {
+			this.name = 'Mario'
+		}
+	}
+})
+
+new Vue({
 	el: '#vue-app-one',
-	data: {
-		title: 'Vue App One'
-	},
-	methods: {
-	},
-	computed: {
-		greet: function () {
-			return 'from ' + this.title
-		}
-	}
 });
-let two = new Vue({
+new Vue({
 	el: '#vue-app-two',
-	data: {
-		title: 'Vue App Two'
-	},
-	methods: {
-		changeTitle: function () {
-			one.title = "title canged";
-		}
-	},
-	computed: {
-		greet: function () {
-			return 'from '+ this.title
-		}
-	}
 });
-two.title = "changed from outside"
