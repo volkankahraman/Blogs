@@ -1,19 +1,30 @@
-new Vue({
-	el: '#vue-app',
+let one = new Vue({
+	el: '#vue-app-one',
 	data: {
-		health: 100,
-		ended: false,
+		title: 'Vue App One'
 	},
 	methods: {
-		punch: function () {
-			this.health -= 10;
-			if(this.health <= 0) this.ended = true;
-		},
-		restart: function () {
-			this.health = 100;
-			this.ended = false;
+	},
+	computed: {
+		greet: function () {
+			return 'from ' + this.title
+		}
+	}
+});
+let two = new Vue({
+	el: '#vue-app-two',
+	data: {
+		title: 'Vue App Two'
+	},
+	methods: {
+		changeTitle: function () {
+			one.title = "title canged";
 		}
 	},
 	computed: {
+		greet: function () {
+			return 'from '+ this.title
+		}
 	}
 });
+two.title = "changed from outside"
