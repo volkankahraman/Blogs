@@ -1,23 +1,29 @@
 <template>
-  <div>
-    <h1>{{title}}</h1>
-    <blogs></blogs>
-  </div>
+<div>
+  <app-header></app-header>
+  <blogs></blogs>
+  <app-footer></app-footer>
+</div>
 </template>
 
 <script>
-import Blogs from "./Blog.vue";
+import Header from "./components/Header.vue";
+import Footer from "./components/Footer.vue";
+import Blogs from "./components/Blogs.vue";
 export default {
-  components:{
+  components: {
+    'app-header':Header,
+    'app-footer':Footer,
     'blogs': Blogs
   },
   data () {
     return {
-      title: 'Blog App'
+
     }
   }
 }
 </script>
 
 <style>
+
 </style>
