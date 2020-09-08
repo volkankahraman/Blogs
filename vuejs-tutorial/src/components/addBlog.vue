@@ -50,11 +50,7 @@ export default {
   },
   methods:{
     post:function () {
-      this.$http.post('https://jsonplaceholder.typicode.com/posts', {
-        title: this.blog.title,
-        body: this.blog.content,
-        userId: 1,
-      }).then((data)=>{
+      this.$http.post('https://blogs-a90d5.firebaseio.com/post.json', this.blog).then((data)=>{
         if(data.ok){
           this.submited = true;
         }
