@@ -1,16 +1,23 @@
 <template>
   <header>
-      <h1>{{title}}</h1>
+      <h1 v-on:click="changeTitle" >{{title}}</h1>
   </header>
 </template>
 
 <script>
+import { bus } from "./../main";
 export default {
   data() {
     return {
         title: 'Vue Blogs'
     };
   },
+  methods: {
+    changeTitle: function () {
+      this.title = "Vue Wizards";
+      bus.$emit('titleChanged','Vue Wizards');
+    }
+  }
 };
 </script>
 
