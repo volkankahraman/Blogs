@@ -50,6 +50,10 @@ export default {
   },
   methods:{
     post:function () {
+      this.blog.timestamp = {  
+       '.sv':"timestamp"
+      }
+      console.log(this.blog);
       this.$http.post('https://blogs-a90d5.firebaseio.com/post.json', this.blog).then((data)=>{
         if(data.ok){
           this.submited = true;

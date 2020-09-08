@@ -8,7 +8,7 @@
         <h3>{{post.title | to-uppercase}}</h3>
       </router-link>
       <!-- <a [routerLink]="'blog',blog.id"><h3>{{post.title | to-uppercase}}</h3></a> -->
-      <p>{{post.body | snippet}}</p>
+      <p>{{post.content | snippet}}</p>
     </div>
   </div>
 </template>
@@ -28,9 +28,18 @@ export default {
   mixins: [searchMixin],
   created() {
     this.$http
-      .get("https://jsonplaceholder.typicode.com/posts/")
+      .get("https://blogs-a90d5.firebaseio.com/post.json")
       .then((data) => {
-        this.posts = data.body.slice(0, 10);
+        for (const key in data.body) {
+          if (data.body.hasOwnProperty(key)) {
+            data.body[key].id = key;
+            
+        this.posts.push(data.body[key])
+            
+          }
+        }
+        console.log(this.posts);
+        // this.posts = data.body.slice(0, 10);
       });
   },
   filters: {
@@ -48,7 +57,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #show-blogs {
   max-width: 600px;
   margin: 0 auto;

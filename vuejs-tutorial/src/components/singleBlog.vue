@@ -1,7 +1,10 @@
 <template>
   <div id="single-blog">
-      <h1>{{blog.title}}</h1>
-      <article>{{blog.body}}</article>
+      <h1>{{blog.title}} </h1>
+      <p align="right">{{date}}</p>
+      <article>{{blog.content}}</article>
+      <p>Categories : {{blog.categories}}</p>
+      <p>Author: {{blog.author}}</p>
   </div>
 </template>
 
@@ -10,13 +13,16 @@ export default {
     data(){
         return {
             id: this.$route.params.id,
-            blog:{}
+            blog:{},
+            date: ''
         }
     },
     created(){
-        this.$http.get('http://jsonplaceholder.typicode.com/posts/'+ this.id).then(
+        this.$http.get('https://blogs-a90d5.firebaseio.com/post.json').then(
             function (res) {
-                this.blog = res.data
+                console.log(this.id);
+                this.blog = res.body[this.id]
+                this.date= new Date(this.blog.timestamp).getHours() +':'+new Date(this.blog.timestamp).getMinutes()
             }
         )
     }
