@@ -1,42 +1,37 @@
 <template>
-<div>
-  <form-helper>
-    <div slot="form-header">
-      <h3>Login</h3>
-    </div>
-    <div slot="form-fields">
-      <label for="id">Username :</label>
-      <input type="text" id="id"><br>
-      <label for="password">password :</label>
-      <input type="password" id="password">
-    </div>
-    <div slot="form-controls">
-      <button @click.prevent="handleSubmit"> Login </button>
-    </div>
-  </form-helper>
-</div>
+  <div>
+    <keep-alive>
+      <component v-bind:is="component"></component>
+    </keep-alive>
+    <button @click="Login">Login</button>
+    <button @click="Register">Register</button>
+  </div>
 </template>
 
 <script>
-import formHelper from './components/formHelper.vue'
+import formOne from "./components/form-one.vue";
+import formTwo from "./components/form-two.vue";
 
 export default {
   components: {
-    'form-helper': formHelper,
+    "form-one": formOne,
+    "form-two": formTwo,
   },
-  data () {
+  data() {
     return {
-
-    }
+      component: "form-two",
+    };
   },
   methods: {
-    handleSubmit: function () {
-     alert(); 
-    }
+    Login: function () {
+      this.component = "form-one";
+    },
+    Register: function () {
+      this.component = "form-two";
+    },
   },
-}
+};
 </script>
 
 <style>
-
 </style>
