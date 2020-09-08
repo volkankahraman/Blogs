@@ -1,10 +1,9 @@
 <template>
   <div v-theme="'wide'" id="show-blogs">
-    <h1>All Blog Articals</h1>
+    <h1>List Blog Titles</h1>
     <input type="text" v-model="search" placeholder="search" />
     <div v-for="post in filteredBlogs" class="single-blog">
       <h3 v-rainbow>{{post.title | to-uppercase}}</h3>
-      <p>{{post.body | snippet}}</p>
     </div>
   </div>
 </template>
@@ -22,6 +21,7 @@ export default {
   },
   methods: {},
   mixins: [searchMixin],
+  //
   created() {
     this.$http
       .get("https://jsonplaceholder.typicode.com/posts/")
